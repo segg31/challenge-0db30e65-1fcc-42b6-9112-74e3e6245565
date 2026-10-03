@@ -1,12 +1,8 @@
 import { ApplicationConfig, provideZoneChangeDetection, isDevMode, importProvidersFrom } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withViewTransitions } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient, withFetch, withInterceptorsFromDi, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { provideRouterTransition } from '@angular/animations';
+import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { routes } from './app.routes';
-import { provideStore } from '@ngrx/store';
-import { provideEffects } from '@ngrx/effects';
-import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -25,9 +21,6 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatRippleModule } from '@angular/material/core';
-import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
-import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
 
 interface FeatureFlags {
   enableExperimentalFeatures: boolean;
@@ -325,16 +318,6 @@ export const appConfig: ApplicationConfig = {
       provide: CacheService,
       useFactory: createCacheService
     },
-    provideStore({}),
-    provideEffects([]),
-    provideStoreDevtools({
-      maxAge: 25,
-      logOnly: !isDevMode(),
-      autoPause: true,
-      trace: false,
-      traceLimit: 75
-    }),
-    provideCharts(withDefaultRegisterables()),
     importProvidersFrom(
       MatSnackBarModule,
       MatDialogModule,
