@@ -1,0 +1,39 @@
+# Archivos y directorios a excluir en la construcción de la imagen Docker
+# Optimiza el tamaño de la imagen y acelera el proceso de build
+
+# Dependencias de Node
+node_modules
+
+# Archivos de Angular CLI
+.angular
+
+# Archivos de build de Angular
+dist
+
+# Archivos de configuración del IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Logs y archivos temporales
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos de tests
+coverage
+
+# Documentación
+docs
+README.md
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore

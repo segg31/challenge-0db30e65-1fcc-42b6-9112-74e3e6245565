@@ -1,0 +1,15 @@
+# STUB: Configuración de Docker Compose para levantar servicios asociados
+# Este archivo define los servicios necesarios para ejecutar la aplicación,
+# como el servidor web y cualquier dependencia adicional.
+# TODO: Configurar los servicios necesarios para la aplicación
+
+services:
+  angular-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: unless-stopped
