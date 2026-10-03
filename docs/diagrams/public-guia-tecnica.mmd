@@ -1,0 +1,7 @@
+graph LR
+    A[Archivos .mmd] --> B[Script generate-diagrams]
+    B --> C{Validación}
+    C -->|Fallo| D[Error de Build]
+    C -->|Éxito| E[Dist/ diagramas]
+    E --> F[Angular App]
+    F --> G[Renderizado Browser]

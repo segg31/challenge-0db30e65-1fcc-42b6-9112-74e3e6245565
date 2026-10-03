@@ -1,0 +1,31 @@
+C4Context
+    title Diagrama de Contexto - Angular Architecture Docs
+
+    Person(dev, "Desarrollador", "Escribe y versiona diagramas y documentacion junto al codigo.")
+    Person(arch, "Arquitecto de Software", "Define decisiones (ADR) y valida la coherencia arquitectonica.")
+    Person(biz, "Stakeholder de Negocio", "Consume documentacion de alto nivel para tomar decisiones.")
+
+    System(aad, "Angular Architecture Docs", "Aplicacion web que renderiza documentacion C4 y diagramas Mermaid para distintas audiencias.")
+
+    System_Ext(git, "Repositorio Git", "Aloja el codigo, los Markdown de docs/ y los ADR. Fuente de verdad.")
+    System_Ext(ci, "Pipeline CI/CD", "Instala dependencias, genera diagramas, compila y despliega la app.")
+    System_Ext(registry, "Registro de Paquetes (npm)", "Provee Angular, Material, Mermaid y demas dependencias.")
+    System_Ext(host, "Entorno de Despliegue", "Sirve la app estatica (contenedor Docker / servidor web).")
+    System_Ext(fonts, "CDN de Fuentes (Google Fonts)", "Entrega las tipografias e iconos de Material usados por la UI.")
+
+    Rel(dev, aad, "Visualiza y navega la documentacion", "HTTPS")
+    Rel(arch, aad, "Revisa diagramas y ADR", "HTTPS")
+    Rel(biz, aad, "Consulta guias de negocio", "HTTPS")
+
+    Rel(dev, git, "Edita docs y diagramas (commit/push)", "Git")
+    Rel(arch, git, "Registra ADR y propone cambios", "Git")
+
+    Rel(ci, git, "Clona el repositorio en cada cambio", "Git")
+    Rel(ci, registry, "Instala dependencias (npm install)", "HTTPS")
+    Rel(ci, host, "Publica la aplicacion compilada", "HTTPS/SSH")
+
+    Rel(aad, git, "Lee los Markdown y diagramas de docs/", "Sistema de archivos / build")
+    Rel(host, aad, "Aloja y sirve", "HTTP/HTTPS")
+    Rel(aad, fonts, "Carga tipografias e iconos", "HTTPS")
+
+    UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="2")
