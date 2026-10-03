@@ -9,9 +9,6 @@ yarn-error.log*
 /out-tsc
 /bazel-out
 
-# Diagramas generados por scripts/generate-diagrams.js
-/src/assets/diagrams
-
 # Cache de Angular / herramientas
 /.angular/cache
 .angular

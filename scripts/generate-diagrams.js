@@ -5,8 +5,8 @@
  *
  * Recorre los archivos Markdown de la carpeta `docs/`, extrae los bloques de
  * codigo Mermaid (```mermaid ... ```) y escribe un indice con los diagramas
- * encontrados en `src/assets/diagrams/`. Mantiene sincronizada la carpeta de
- * assets con las definiciones de diagramas que viven junto a la documentacion.
+ * encontrados en `docs/diagrams/`. Los diagramas quedan versionados junto a la
+ * documentacion de la que provienen.
  *
  * Se invoca via `npm run generate:docs`.
  */
@@ -16,7 +16,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const DOCS_DIR = path.join(ROOT, 'docs');
-const OUTPUT_DIR = path.join(ROOT, 'src', 'assets', 'diagrams');
+const OUTPUT_DIR = path.join(ROOT, 'docs', 'diagrams');
 
 const MERMAID_BLOCK = /```mermaid\s*([\s\S]*?)```/g;
 
