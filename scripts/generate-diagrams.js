@@ -78,7 +78,7 @@ function main() {
 
   fs.writeFileSync(
     path.join(OUTPUT_DIR, 'index.json'),
-    `${JSON.stringify({ generatedAt: new Date().toISOString(), diagrams: index }, null, 2)}\n`,
+    `${JSON.stringify({ diagrams: index }, null, 2)}\n`,
     'utf8'
   );
 
